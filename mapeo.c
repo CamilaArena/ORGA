@@ -138,6 +138,8 @@ void m_eliminar(tMapeo m, tClave c, void (*fEliminarC)(void *), void (*fEliminar
             seguir = 0;
             l_eliminar(tablahash, pos, &funcion_eliminar_entrada);
             m->cantidad_elementos--;
+            entry->clave = NULL;
+            entry->valor = NULL;
         }
         else{
             pos = l_siguiente(tablahash, pos);
@@ -160,8 +162,11 @@ void m_destruir(tMapeo * m, void (*fEliminarC)(void *), void (*fEliminarV)(void 
         l_destruir(&((*m)->tabla_hash[i]), &funcion_eliminar_entrada);
     }
 
-    free(*m);
+    (*m)->comparador = NULL;
+    (*m)->hash_code = NULL;
     free((*m)->tabla_hash);
+    (*m)->tabla_hash = NULL;
+    free(*m);
     (*m) = NULL;
 }
 

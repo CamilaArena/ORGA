@@ -86,6 +86,10 @@ void procesar_archivo(){
 
         while(separados != NULL){
             word = strdup(separados);
+            if (word == NULL){
+                exit(ERR_MEMORY);
+            }
+
             apariciones =  m_recuperar(map, separados);
 
             if (apariciones == NULL) {
@@ -93,10 +97,13 @@ void procesar_archivo(){
                 if(valor == NULL){
                     exit(ERR_MEMORY);
                 }
+
                 *valor = 1;
                 m_insertar(map, word, valor);
+
            }
            else {
+                free(word);
                *apariciones = *(apariciones) + 1;
            }
             separados = strtok(NULL, separadores); //de esta manera evitamos un bucle infinito
