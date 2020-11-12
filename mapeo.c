@@ -104,7 +104,7 @@ tValor m_insertar(tMapeo m, tClave c, tValor v){
         l_insertar(lista,pos,entry);
         m->cantidad_elementos++;
 
-        if((m->cantidad_elementos+1) / (m->longitud_tabla) >=  fc){ //Si supera el factor de carga definido.
+        if((float)(m->cantidad_elementos+1) / (float)(m->longitud_tabla) >=  fc){ //Si supera el factor de carga definido.
             re_hash(m);
         }
     }
@@ -157,12 +157,11 @@ void m_destruir(tMapeo * m, void (*fEliminarC)(void *), void (*fEliminarV)(void 
 
     //Se recorren todos los buckets de la tabla, destruyendo asimismo cada lista contenida en ellos.
     for (int i=0; i < (*m)->longitud_tabla; i++){
-        tLista to_free = (*m)->tabla_hash[i];
         l_destruir(&((*m)->tabla_hash[i]), &funcion_eliminar_entrada);
-        free(to_free);
     }
 
-    free(m);
+    free(*m);
+    free(m->tabla_hash);
     (*m) = NULL;
 }
 
@@ -190,9 +189,6 @@ tValor m_recuperar(tMapeo m, tClave c){
         else
             pos_actual = l_siguiente(mi_lista, pos_actual);
     }
-
-
-
     return toReturn;
 }
 
@@ -211,7 +207,7 @@ void funcion_eliminar_entrada(tElemento e){
 }
 
 /**
- La utilizamos en el método reHash para que cuando destruimos la lista, no nos borre las entradas de las mismas.
+ La utilizamos en reHash para que cuando destruimos la lista, no nos borre las entradas de las mismas.
 **/
 void noEliminarLasEntradas(){
 }
@@ -253,6 +249,7 @@ void re_hash(tMapeo m) {
     }
 
     m->longitud_tabla = nuevo_tamanyo;
+    free(m->tabla_hash);
     m->tabla_hash = lista;
 }
 

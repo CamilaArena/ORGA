@@ -139,3 +139,18 @@
 	"string.h"
 	"mapeo.h"
 
+1603845206 source:c:\users\camia\desktop\proyectoorga\orga\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603845206 c:\users\camia\desktop\proyectoorga\orga\lista.h
+
+1605207461 source:c:\users\camia\desktop\proyectoorga\orga\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+
+1603845206 c:\users\camia\desktop\proyectoorga\orga\mapeo.h
+	"lista.h"
+

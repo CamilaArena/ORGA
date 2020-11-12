@@ -8,6 +8,7 @@
 #define ERR_OPEN_FILE -1
 #define ERR_INIT_PROGRAM -2
 #define ERR_OPTION -3
+#define ERR_MEMORY -4
 
 FILE* archivo;
 tMapeo map;
@@ -76,8 +77,12 @@ void procesar_archivo(){
     int *apariciones;
     char *word, *p;
     char *separados;
+    int *valor;
 
     p = (char *)malloc((34*sizeof(char)) * 50);
+    if(p==NULL){
+       exit(ERR_MEMORY);
+    }
 
     while(p != NULL) {
 
@@ -89,7 +94,10 @@ void procesar_archivo(){
             apariciones =  m_recuperar(map, separados);
 
             if (apariciones == NULL) {
-                //int *valor = malloc(sizeof(int));
+                valor = malloc(sizeof(int));
+                if(valor == NULL){
+                    exit(ERR_MEMORY);
+                }
                 *valor = 1;
                 m_insertar(map, word, valor);
            }
@@ -130,6 +138,9 @@ int main(int argc, char * argv[]) {
 
     if(argc == 2){
         char* word = (char *) malloc(34*sizeof(char));
+        if(word == NULL){
+            exit(ERR_MEMORY);
+        }
         int opcion = 1;
         int apariciones;
         filename = argv[1];
