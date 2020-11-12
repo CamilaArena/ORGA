@@ -1,0 +1,141 @@
+# depslib dependency file v1.0
+1641664 <<<<<<< HEAD
+
+1603399233 source:c:\users\camia\desktop\proyecto orga\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603224996 
+
+1603333784 source:/home/nicolas/Escritorio/codeblocks_workspace/Proyecto/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1603333784 acaa22eb224b692d94883670795f8a9296fc6
+	"lista.h"
+
+1603331408 source:/home/nicolas/Escritorio/codeblocks_workspace/Proyecto/lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603225706 /home/nicolas/Escritorio/codeblocks_workspace/Proyecto/lista.h
+
+1603317223 source:/home/nicolas/Escritorio/codeblocks_workspace/Proyecto/mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+	"lista.h"
+
+1603251500 /home/nicolas/Escritorio/codeblocks_workspace/Proyecto/mapeo.h
+	"lista.h"
+
+1603134561 c:\users\camia\desktop\proyecto orga\lista.h
+
+1603394201 source:c:\users\camia\desktop\proyecto orga\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lista.h"
+
+1603403934 source:c:\users\camia\desktop\proyecto orga\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+	"lista.h"
+
+1603394202 c:\users\camia\desktop\proyecto orga\mapeo.h
+	"lista.h"
+
+1603404427 source:c:\users\joang\onedrive\desktop\proyecto orga\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603220891 c:\users\joang\onedrive\desktop\proyecto orga\lista.h
+
+1603404427 source:c:\users\joang\onedrive\desktop\proyecto orga\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lista.h"
+
+1603845206 source:c:\users\camia\desktop\proyecto orga\proyecto-orga\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603845206 c:\users\camia\desktop\proyecto orga\proyecto-orga\lista.h
+
+1603982371 source:c:\users\camia\desktop\proyecto orga\proyecto-orga\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+
+1603845206 c:\users\camia\desktop\proyecto orga\proyecto-orga\mapeo.h
+	"lista.h"
+
+1603664001 source:c:\users\camia\desktop\proyecto orga\proyecto-orga\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lista.h"
+	"mapeo.h"
+
+1604020647 source:c:\users\camia\desktop\proyecto orga\proyecto-orga\evaluador.c
+	<stdio.h>
+	<ctype.h>
+	<stdlib.h>
+	"string.h"
+	"mapeo.h"
+
+1603664001 c:\users\camia\desktop\proyecto orga\proyecto-orga\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+
+1603920856 source:c:\users\joang\onedrive\desktop\proyecto orga\proyecto-orga\evaluador.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"mapeo.h"
+
+1603915125 c:\users\joang\onedrive\desktop\proyecto orga\proyecto-orga\mapeo.h
+	"lista.h"
+
+1603915125 c:\users\joang\onedrive\desktop\proyecto orga\proyecto-orga\lista.h
+
+1603915125 source:c:\users\joang\onedrive\desktop\proyecto orga\proyecto-orga\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603915125 source:c:\users\joang\onedrive\desktop\proyecto orga\proyecto-orga\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+
+1603845206 source:c:\users\camia\desktop\uni 2020\orga\proyecto orga\proyecto-orga\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1603845206 c:\users\camia\desktop\uni 2020\orga\proyecto orga\proyecto-orga\lista.h
+
+1605204752 source:c:\users\camia\desktop\uni 2020\orga\proyecto orga\proyecto-orga\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+
+1603845206 c:\users\camia\desktop\uni 2020\orga\proyecto orga\proyecto-orga\mapeo.h
+	"lista.h"
+
+1605200764 source:c:\users\camia\desktop\uni 2020\orga\proyecto orga\proyecto-orga\evaluador.c
+	<stdio.h>
+	<ctype.h>
+	<stdlib.h>
+	"string.h"
+	"mapeo.h"
+
