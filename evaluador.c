@@ -75,19 +75,14 @@ void procesar_archivo(){
     char linea[255];
     char separadores[] = " ,.¿?¡!\n\0";
     int *apariciones;
-    char *word, *p;
+    char *word;
     char *separados;
     int *valor;
 
-    p = (char *)malloc((34*sizeof(char)) * 50);
-    if(p==NULL){
-       exit(ERR_MEMORY);
-    }
+    while(!feof(archivo)) {
 
-    while(p != NULL) {
-
-        p = fgets(linea, 100, archivo);
-        separados = strtok(p, separadores);
+        fgets(linea, 100, archivo);
+        separados = strtok(linea, separadores);
 
         while(separados != NULL){
             word = strdup(separados);
@@ -107,7 +102,6 @@ void procesar_archivo(){
             separados = strtok(NULL, separadores); //de esta manera evitamos un bucle infinito
         }
     }
-  	free(p);
     fclose(archivo);
 }
 

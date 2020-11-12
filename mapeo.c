@@ -161,7 +161,7 @@ void m_destruir(tMapeo * m, void (*fEliminarC)(void *), void (*fEliminarV)(void 
     }
 
     free(*m);
-    free(m->tabla_hash);
+    free((*m)->tabla_hash);
     (*m) = NULL;
 }
 
@@ -226,6 +226,9 @@ void re_hash(tMapeo m) {
     int long_vieja = (int) m->longitud_tabla;
     tLista lista_actual;
     tLista *lista = (tLista*) malloc((nuevo_tamanyo) * sizeof(tLista));
+    if(lista==NULL){
+       exit(MAP_ERROR_MEMORIA);
+    }
 
     //se crean las listas en la tabla hash redimensionada
     for(int i = 0; i < nuevo_tamanyo; i++) {

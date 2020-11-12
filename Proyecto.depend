@@ -146,11 +146,18 @@
 
 1603845206 c:\users\camia\desktop\proyectoorga\orga\lista.h
 
-1605207461 source:c:\users\camia\desktop\proyectoorga\orga\mapeo.c
+1605211298 source:c:\users\camia\desktop\proyectoorga\orga\mapeo.c
 	<stdio.h>
 	<stdlib.h>
 	"mapeo.h"
 
 1603845206 c:\users\camia\desktop\proyectoorga\orga\mapeo.h
 	"lista.h"
+
+1605211667 source:c:\users\camia\desktop\proyectoorga\orga\evaluador.c
+	<stdio.h>
+	<ctype.h>
+	<stdlib.h>
+	"string.h"
+	"mapeo.h"
 
