@@ -91,6 +91,7 @@ void procesar_archivo(){
 
             apariciones =  m_recuperar(map, separados);
 
+            //comienza a insertar las palabras separadas en el mapeo dependiendo de si ya se encuentran o no
             if (apariciones == NULL) {
                 valor = malloc(sizeof(int));
                 if(valor == NULL){
