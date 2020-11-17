@@ -46,7 +46,6 @@ int funcion_hash(void * p) {
     return sumaAscii;
 }
 
-
 //Funcion eliminar clave.
 /**
 Procedimiento que elimina y libera la memoria ocupada por la clave parametrizada.
@@ -73,8 +72,8 @@ Procedimiento encargado de guardar todas las palabras del archivo en el mapeo.
 **/
 void procesar_archivo(){
     char linea[255];
-    char separadores[] = " ,.¿?¡!\n\0";
     int *apariciones;
+    char separadores[] = " ,.¿?¡!\n\0";
     char *word;
     char *separados;
     int *valor;
@@ -100,13 +99,13 @@ void procesar_archivo(){
 
                 *valor = 1;
                 m_insertar(map, word, valor);
-
            }
            else {
                 free(word);
-               *apariciones = *(apariciones) + 1;
+                *apariciones = *(apariciones) + 1;
            }
-            separados = strtok(NULL, separadores); //de esta manera evitamos un bucle infinito
+
+           separados = strtok(NULL, separadores); //de esta manera evitamos un bucle infinito
         }
     }
     fclose(archivo);
@@ -132,10 +131,15 @@ int cant_apariciones(char * word){
     return cant;
 }
 
+//Programa principal
+/**
+    Procedimiento main encargado de procesar el archivo para ofrecer la operacione de
+    consultar la cantidad de apariciones por palabra. Se debe ejecutar por consola/terminal.
+    @Param argc - Cantidad de parametros enviados a traves de la consola
+    @Param argv - Arreglo con los parametros enviados a traves de la consola
+**/
 int main(int argc, char * argv[]) {
-    argc=2;
     char *filename;
-    argv[1]="file.txt";
 
     if(argc == 2){
         char* word = (char *) malloc(34*sizeof(char));
@@ -156,6 +160,7 @@ int main(int argc, char * argv[]) {
 
         procesar_archivo(filename);
 
+        //Implementacion del menu
         printf("Operaciones disponibles: \n");
         printf("1 - Consultar la cantidad de apariciones de una palabra.\n");
         printf("2 - Salir.\n");

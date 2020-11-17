@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "lista.h"
 
 /**
@@ -16,6 +15,7 @@ void crear_lista(tLista * l){
     (*l)->elemento=NULL;
     (*l)->siguiente=NULL;
 }
+
 /**
  Inserta el elemento E, en la posición P, en L.
  Con L = A,B,C,D y la posición P direccionando C, luego:
@@ -39,6 +39,7 @@ void l_insertar(tLista l, tPosicion p, tElemento e){
     (insert->siguiente) = p->siguiente;
     (p->siguiente) = insert;
 }
+
 /**
  Elimina la celda P de L.
  El elemento almacenado en la posición P es eliminado mediante la función fEliminar.
@@ -65,6 +66,7 @@ void l_destruir_recursivo(tPosicion p,void (*fEliminar)(tElemento)){
     p->siguiente=NULL;
     free(p);
 }
+
 /**
  Destruye la lista L, elimininando cada una de sus celdas.
  Los elementos almacenados en las celdas son eliminados mediante la función fEliminar.
@@ -80,6 +82,7 @@ void l_destruir(tLista * l,void (*fEliminar)(tElemento)){
     free(pos);
     *l=NULL;
 }
+
 /**
 Recupera y retorna el elemento en la posición P.
 Finaliza indicando LST_POSICION_INVALIDA si P es fin(L).
@@ -96,6 +99,7 @@ tElemento l_recuperar(tLista l, tPosicion p){
 tPosicion l_primera(tLista l){
     return l;
 }
+
 /**
  Recupera y retorna la posición siguiente a P en L.
  Finaliza indicando LST_NO_EXISTE_SIGUIENTE si P es fin(L).
@@ -106,6 +110,7 @@ tPosicion l_siguiente(tLista l, tPosicion p){
 
     return (p->siguiente);
 }
+
 /**
  Recupera y retorna la posición anterior a P en L.
  Finaliza indicando LST_NO_EXISTE_ANTERIOR si P es primera(L).
@@ -122,6 +127,7 @@ tPosicion l_anterior(tLista l, tPosicion p){
 
     return pos;
 }
+
 /**
  Recupera y retorna la última posición de L.
  Si L es vacía, primera(L) = ultima(L) = fin(L).
@@ -135,6 +141,7 @@ tPosicion l_ultima(tLista l){
     }
     return ultima;
 }
+
 /**
  Recupera y retorna la posición fin de L.
  Si L es vacía, primera(L) = ultima(L) = fin(L).
@@ -146,10 +153,10 @@ tPosicion l_fin(tLista l){
         fin=fin->siguiente;
     return fin;
 }
+
 /**
  Retorna la longitud actual de la lista.
 **/
-
 int l_longitud(tLista l){
     int cant=0;
     tPosicion cursor=l;

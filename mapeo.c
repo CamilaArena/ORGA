@@ -217,7 +217,6 @@ void funcion_eliminar_entrada(tElemento e){
 void noEliminarLasEntradas(){
 }
 
-
 /**
 Procedimiento encargado de duplicar el tamaño de la tabla hash.
 Reinserta a todos los elementos de manera que queden distribuidos uniformemente.
