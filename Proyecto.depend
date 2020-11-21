@@ -161,3 +161,25 @@
 	"string.h"
 	"mapeo.h"
 
+1605968354 source:c:\users\joang\desktop\orga-master\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1605968354 c:\users\joang\desktop\orga-master\lista.h
+
+1605968354 source:c:\users\joang\desktop\orga-master\mapeo.c
+	<stdio.h>
+	<stdlib.h>
+	"mapeo.h"
+
+1605968354 c:\users\joang\desktop\orga-master\mapeo.h
+	"lista.h"
+
+1606000461 source:c:\users\joang\desktop\orga-master\evaluador.c
+	<stdio.h>
+	<ctype.h>
+	<stdlib.h>
+	"string.h"
+	"mapeo.h"
+

@@ -169,10 +169,15 @@ int main(int argc, char * argv[]) {
         printf("Operaciones disponibles: \n");
         printf("1 - Consultar la cantidad de apariciones de una palabra.\n");
         printf("2 - Salir.\n");
-        printf("Digite una opcion: ");
+        printf("Ingrese una opcion: ");
         scanf("%d", &opcion);
         fflush(stdin);
         printf("\n");
+
+        if (opcion == 2){
+            free(word);
+            salir();
+        }
 
         while (opcion == 1){
             printf("Ingrese una palabra: ");
@@ -183,18 +188,19 @@ int main(int argc, char * argv[]) {
             apariciones = cant_apariciones(word);
 
             printf("La cantidad de apariciones de la palabra '%s' es %d\n", word, apariciones);
-            printf("Si desea ingresar otra palabra, digite 1, sino digite 2: ");
+            printf("Si desea consultar otra palabra, ingrese 1, sino ingrese 2: ");
             scanf("%d",&opcion);
             fflush(stdin);
             printf("\n");
 
             if (opcion == 2){
                 free(word);
+                salir();
             }
         }
 
         if (opcion != 2){
-            printf("Error: la opcion digitada es incorrecta.\n");
+            printf("Error: la opcion ingresada es incorrecta.\n");
             printf("Cerrando programa...\n");
             free(word);
             salir();
