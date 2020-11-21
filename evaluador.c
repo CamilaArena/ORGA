@@ -117,6 +117,7 @@ Procedimiento encargado de finalizar el programa y de liberar la memoria utiliza
 **/
 int salir(){
     m_destruir(&map, &fEliminarC, &fEliminarV);
+    printf("Gracias por utilizar nuestra aplicacion.\n");
     return 0;
 }
 
@@ -141,14 +142,16 @@ int cant_apariciones(char * word){
 **/
 int main(int argc, char * argv[]) {
     char *filename;
+    int apariciones;
+    int opcion = 1;
+    char* word;
 
     if(argc == 2){
-        char* word = (char *) malloc(34*sizeof(char));
+        word = (char *) malloc(34*sizeof(char));
         if(word == NULL){
             exit(ERR_MEMORY);
         }
-        int opcion = 1;
-        int apariciones;
+
         filename = argv[1];
         crear_mapeo(&map, 10, &funcion_hash, &funcion_comparacion);
 
@@ -166,34 +169,35 @@ int main(int argc, char * argv[]) {
         printf("1 - Consultar la cantidad de apariciones de una palabra.\n");
         printf("2 - Salir.\n");
         printf("Seleccione una opcion: ");
-        scanf("%d", &opcion);fflush(stdin);
+        scanf("%d", &opcion);
+        fflush(stdin);
         printf("\n");
 
-        if(opcion!=1 && opcion!=2){
-            printf("Error: la opcion seleccionada es incorrecta");
-            exit(ERR_OPTION);
+        while (opcion == 1){
+            printf("Ingrese una palabra: ");
+            scanf("%s",(char*) word);
+            fflush(stdin);
+            printf("\n");
+
+            apariciones = cant_apariciones(word);
+
+            printf("La cantidad de apariciones de la palabra es %d\n", apariciones);
+            printf("Si desea ingresar otra palabra, seleccione 1, sino seleccione 2: ");
+            scanf("%d",&opcion);
+            fflush(stdin);
+            printf("\n");
+
+            if (opcion == 2){
+                free(word);
+            }
         }
 
-        while(opcion != 2){
-            if(opcion == 1){
-                printf("Ingrese una palabra: ");
-                scanf("%s",(char*) word);fflush(stdin);
-                printf("\n");
-
-                apariciones = cant_apariciones(word);
-
-                printf("La cantidad de apariciones de la palabra es %d\n", apariciones);
-                printf("Si desea ingresar otra palabra, seleccione 1, sino seleccione 2: ");
-                scanf("%d",&opcion);fflush(stdin);
-                printf("\n");
-            }
-            else {
-                if(opcion!= 2){
-                    printf("Error: la opcion seleccionada es incorrecta");
-                    free(word);
-                    salir();
-                }
-            }
+        if (opcion != 2){
+            printf("Error: la opcion seleccionada es incorrecta\n");
+            printf("Cerrando programa...\n");
+            free(word);
+            salir();
+            exit(ERR_OPTION);
         }
     }
     else{
@@ -201,5 +205,6 @@ int main(int argc, char * argv[]) {
         exit(ERR_INIT_PROGRAM);
     }
 
+    salir();
     return 0;
 }
