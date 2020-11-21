@@ -212,9 +212,10 @@ void funcion_eliminar_entrada(tElemento e){
 }
 
 /**
- La utilizamos en reHash para que cuando destruimos la lista, no nos borre las entradas de las mismas.
+    Procedimiento utilizado en reHash para que al momento de ser destruida la lista, no se borren las entradas de la misma.
 **/
 void noEliminarLasEntradas(){
+
 }
 
 /**

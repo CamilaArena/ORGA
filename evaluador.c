@@ -118,12 +118,13 @@ Procedimiento encargado de finalizar el programa y de liberar la memoria utiliza
 int salir(){
     m_destruir(&map, &fEliminarC, &fEliminarV);
     printf("Gracias por utilizar nuestra aplicacion.\n");
+
     return 0;
 }
 
 /**
 Funcion encargada de computar la cantidad de apariciones de una determinada palabra en el archivo
-@Param *word- es la palabra cuyas apariciones se deben contabilizar.
+@Param *word- palabra cuyas apariciones se deben contabilizar.
 **/
 int cant_apariciones(char * word){
     int cant = 0;
@@ -135,15 +136,15 @@ int cant_apariciones(char * word){
 
 //Programa principal
 /**
-    Procedimiento main encargado de procesar el archivo para ofrecer la operacione de
+    Procedimiento main encargado de procesar el archivo para ofrecer la operacion de
     consultar la cantidad de apariciones por palabra. Se debe ejecutar por consola/terminal.
-    @Param argc - Cantidad de parametros enviados a traves de la consola
-    @Param argv - Arreglo con los parametros enviados a traves de la consola
+    @Param argc - Cantidad de parametros enviados a traves de la consola.
+    @Param argv - Arreglo con los parametros enviados a traves de la consola.
 **/
 int main(int argc, char * argv[]) {
     char *filename;
     int apariciones;
-    int opcion = 1;
+    int opcion;
     char* word;
 
     if(argc == 2){
@@ -158,7 +159,7 @@ int main(int argc, char * argv[]) {
         //Archivo del programa
         archivo = fopen(filename, "r");
         if (archivo == NULL) {
-            printf("Error: no fue posible abrir el archivo\n");
+            printf("Error: no fue posible abrir el archivo.\n");
             exit(ERR_OPEN_FILE);
         }
 
@@ -168,7 +169,7 @@ int main(int argc, char * argv[]) {
         printf("Operaciones disponibles: \n");
         printf("1 - Consultar la cantidad de apariciones de una palabra.\n");
         printf("2 - Salir.\n");
-        printf("Seleccione una opcion: ");
+        printf("Digite una opcion: ");
         scanf("%d", &opcion);
         fflush(stdin);
         printf("\n");
@@ -181,8 +182,8 @@ int main(int argc, char * argv[]) {
 
             apariciones = cant_apariciones(word);
 
-            printf("La cantidad de apariciones de la palabra es %d\n", apariciones);
-            printf("Si desea ingresar otra palabra, seleccione 1, sino seleccione 2: ");
+            printf("La cantidad de apariciones de la palabra '%s' es %d\n", word, apariciones);
+            printf("Si desea ingresar otra palabra, digite 1, sino digite 2: ");
             scanf("%d",&opcion);
             fflush(stdin);
             printf("\n");
@@ -193,7 +194,7 @@ int main(int argc, char * argv[]) {
         }
 
         if (opcion != 2){
-            printf("Error: la opcion seleccionada es incorrecta\n");
+            printf("Error: la opcion digitada es incorrecta.\n");
             printf("Cerrando programa...\n");
             free(word);
             salir();
@@ -201,7 +202,7 @@ int main(int argc, char * argv[]) {
         }
     }
     else{
-        printf("Error: no se pudo inicializar el programa\n");
+        printf("Error: no se pudo inicializar el programa.\n");
         exit(ERR_INIT_PROGRAM);
     }
 

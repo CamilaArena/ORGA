@@ -12,6 +12,7 @@ void crear_lista(tLista * l){
     (*l)=(tLista) malloc(sizeof(struct celda));
     if((*l)==NULL)
         exit(LST_ERROR_MEMORIA);
+
     (*l)->elemento=NULL;
     (*l)->siguiente=NULL;
 }
@@ -35,7 +36,7 @@ void l_insertar(tLista l, tPosicion p, tElemento e){
         exit(LST_ERROR_MEMORIA);
     }
 
-    insert->elemento=e;
+    (insert->elemento) = e;
     (insert->siguiente) = p->siguiente;
     (p->siguiente) = insert;
 }
@@ -49,6 +50,7 @@ void l_eliminar(tLista l, tPosicion p, void(*fEliminar)(tElemento)){
     tPosicion eliminar;
     if(p->siguiente==NULL) //si P es el fin
         exit(LST_POSICION_INVALIDA);
+
     eliminar=p->siguiente;
     p->siguiente = eliminar->siguiente;
     fEliminar(eliminar->elemento);
@@ -58,7 +60,7 @@ void l_eliminar(tLista l, tPosicion p, void(*fEliminar)(tElemento)){
 }
 
 void l_destruir_recursivo(tPosicion p,void (*fEliminar)(tElemento)){
-    if(p->siguiente!=NULL)
+    if(p->siguiente != NULL)
         l_destruir_recursivo(p->siguiente, fEliminar);
 
     fEliminar(p->elemento);
@@ -90,6 +92,7 @@ Finaliza indicando LST_POSICION_INVALIDA si P es fin(L).
 tElemento l_recuperar(tLista l, tPosicion p){
     if(p==NULL || (p->siguiente)==NULL)
         exit(LST_POSICION_INVALIDA);
+
     return (p->siguiente)->elemento;
 }
 /**
@@ -134,11 +137,13 @@ tPosicion l_anterior(tLista l, tPosicion p){
 **/
 tPosicion l_ultima(tLista l){
     tPosicion ultima, actual;
-    ultima=actual=l;
-    while(actual->siguiente!=NULL){
+    ultima = actual = l;
+
+    while(actual->siguiente != NULL){
         ultima=actual;
         actual=actual->siguiente;
     }
+
     return ultima;
 }
 
@@ -149,8 +154,11 @@ tPosicion l_ultima(tLista l){
 tPosicion l_fin(tLista l){
     tPosicion fin;
     fin=l;
-    while(fin->siguiente!=NULL)
-        fin=fin->siguiente;
+
+    while(fin->siguiente != NULL){
+        fin = fin->siguiente;
+    }
+
     return fin;
 }
 
@@ -158,11 +166,13 @@ tPosicion l_fin(tLista l){
  Retorna la longitud actual de la lista.
 **/
 int l_longitud(tLista l){
-    int cant=0;
-    tPosicion cursor=l;
-    while(cursor->siguiente!=NULL){
+    int cant = 0;
+    tPosicion cursor = l;
+
+    while(cursor->siguiente != NULL){
         cant++;
         cursor=cursor->siguiente;
     }
+
     return cant;
 }
