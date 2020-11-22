@@ -1,14 +1,13 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
 
 #include "string.h"
 #include "mapeo.h"
 
-#define ERR_OPEN_FILE -1
-#define ERR_INIT_PROGRAM -2
-#define ERR_OPTION -3
-#define ERR_MEMORY -4
+#define ERR_OPEN_FILE -1 //macro de error al abrir un archivo.
+#define ERR_INIT_PROGRAM -2 //macro de error al iniciar la aplicacion.
+#define ERR_OPTION -3 //macro de error al detectar una opcion invalida ingresada.
+#define ERR_MEMORY -4 //macro de error de reservacion de memoria.
 
 FILE* archivo;
 tMapeo map;
@@ -67,8 +66,7 @@ void fEliminarV(void *valor) {
 }
 
 /**
-Procedimiento encargado de guardar todas las palabras del archivo en el mapeo.
-@Param m- tMapeo donde guardar las palabras del archivo.
+Procedimiento encargado de guardar todas las palabras del archivo en el mapeo global.
 **/
 void procesar_archivo(){
     char linea[255];
@@ -79,7 +77,6 @@ void procesar_archivo(){
     int *valor;
 
     while(!feof(archivo)) {
-
         fgets(linea, 100, archivo);
         separados = strtok(linea, separadores);
 
@@ -150,6 +147,9 @@ int main(int argc, char * argv[]) {
     int opcion;
     char* word;
 
+    argc = 2;
+    argv[1] = "file.txt";
+
     if(argc == 2){
         word = (char *) malloc(34*sizeof(char));
         if(word == NULL){
@@ -174,14 +174,10 @@ int main(int argc, char * argv[]) {
         printf("1 - Consultar la cantidad de apariciones de una palabra.\n");
         printf("2 - Salir.\n");
         printf("Ingrese una opcion: ");
+        opcion = -1;
         scanf("%d", &opcion);
         fflush(stdin);
         printf("\n");
-
-        if (opcion == 2){
-            free(word);
-            salir();
-        }
 
         while (opcion == 1){
             printf("Ingrese una palabra: ");
@@ -197,14 +193,13 @@ int main(int argc, char * argv[]) {
             scanf("%d", &opcion);
             fflush(stdin);
             printf("\n");
-
-            if (opcion == 2){
-                free(word);
-                salir();
-            }
         }
 
-        if (opcion != 2){
+        if (opcion == 2){
+            free(word);
+            salir();
+        }
+        else {
             printf("Error: la opcion ingresada es incorrecta.\n");
             free(word);
             salir();
