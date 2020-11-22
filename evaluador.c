@@ -147,9 +147,6 @@ int main(int argc, char * argv[]) {
     int opcion;
     char* word;
 
-    argc = 2;
-    argv[1] = "file.txt";
-
     if(argc == 2){
         word = (char *) malloc(34*sizeof(char));
         if(word == NULL){
