@@ -86,6 +86,7 @@ void procesar_archivo(){
         while(separados != NULL){
             word = strdup(separados);
             if (word == NULL){
+                printf("Error de memoria.");
                 exit(ERR_MEMORY);
             }
 
@@ -95,6 +96,7 @@ void procesar_archivo(){
             if (apariciones == NULL) {
                 valor = malloc(sizeof(int));
                 if(valor == NULL){
+                    printf("Error de memoria.");
                     exit(ERR_MEMORY);
                 }
 
@@ -117,6 +119,7 @@ Procedimiento encargado de finalizar el programa y de liberar la memoria utiliza
 **/
 int salir(){
     m_destruir(&map, &fEliminarC, &fEliminarV);
+    printf("Cerrando programa...\n");
     printf("Gracias por utilizar nuestra aplicacion.\n");
 
     return 0;
@@ -150,6 +153,7 @@ int main(int argc, char * argv[]) {
     if(argc == 2){
         word = (char *) malloc(34*sizeof(char));
         if(word == NULL){
+            printf("Error de memoria.");
             exit(ERR_MEMORY);
         }
 
@@ -189,7 +193,8 @@ int main(int argc, char * argv[]) {
 
             printf("La cantidad de apariciones de la palabra '%s' es %d\n", word, apariciones);
             printf("Si desea consultar otra palabra, ingrese 1, sino ingrese 2: ");
-            scanf("%d",&opcion);
+            opcion = -1; //para que detecte error de opcion si se ingresa una cadena de caracteres como opcion
+            scanf("%d", &opcion);
             fflush(stdin);
             printf("\n");
 
@@ -201,7 +206,6 @@ int main(int argc, char * argv[]) {
 
         if (opcion != 2){
             printf("Error: la opcion ingresada es incorrecta.\n");
-            printf("Cerrando programa...\n");
             free(word);
             salir();
             exit(ERR_OPTION);
