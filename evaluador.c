@@ -212,6 +212,5 @@ int main(int argc, char * argv[]) {
         exit(ERR_INIT_PROGRAM);
     }
 
-    salir();
     return 0;
 }
